@@ -1,0 +1,23 @@
+<!-- Mengubah link navigasi menjadi tombol -->
+<button class="btn btn-success" [routerLink]=" ['/company/ad']" routerLinkActive="active">Data Produk</button>
+
+<div class="bg">
+  <div style="margin-top: 10px;" class="child" *ngFor="let ad of ads">
+    <div class="card" nz-row>
+      <div nz-col nzSpan="24" class="content">
+        <div class="img-container">
+          <img class="profile" [src]="updateImg(ad.returnedImg)" />
+        </div>
+        <div class="text-container">
+          <h1 style="cursor:pointer; color: #000;">{{ ad.serviceName }}</h1>
+          <h4>Harga: {{ ad.price }}</h4>
+          <p class="description">Deskripsi: {{ ad.description }}</p>
+          <div class="card-buttons">
+            <button nzSize="small" nz-button nzType="primary" (click)="updateAd(ad.id)">Update</button>
+            <button (click)="deleteAd(ad.id)" nzSize="small" nz-button nzType="primary"> Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
